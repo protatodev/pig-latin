@@ -48,43 +48,67 @@ function translate(word) {
 
   // Loop over word array to check for vowels
   // Check for single character word
-  for(i = 0; i < LENGTH; i++) {
-    for(j = 0; j < vowels.length; j++) {
-      if(LENGTH === 1 && charArray[0] === vowels[j] && isString && (i === 0)) {
+  if(LENGTH === 1 && isString) {
+
+    for(i = 0; i < vowels.length; i++) {
+      if(charArray[0] == vowels[i]) {
         charArray.push(AY);
-        word = charArray.join("");
-        //break;
-      }
-
-      if(charArray[0] === vowels[j] && isString && (i === 0)) {
-        charArray.push(WAY);
-        word = charArray.join("");
-        //break;
-      }
-
-      if(charArray[0] === "y" && isString && (i === 0)) {
-        charArray.splice((LENGTH), 0, "y");
-        charArray.splice(0, 1);
-        charArray.push(AY);
-        word = charArray.join("");
-        //break;
-      }
-
-      if(charArray[0] !== vowels[j] && isString) {
-        charArray.splice(LENGTH, 0, charArray[0]);
-        charArray.splice(charArray[0], 1);
-        if(i === (LENGTH - 1)) {
-          charArray.push(AY);
-          word = charArray.join("");
-        }
       }
     }
+    word = charArray.join("");
+
+  } else if(LENGTH > 1 && isVowel(charArray[0], vowels) == true) {
+
+    charArray.push(WAY);
+    word = charArray.join("");
+  } else if(charArray[0] === "y" && isString) {
+    charArray.splice((LENGTH), 0, "y");
+    charArray.splice(0, 1);
+    charArray.push(AY);
+    word = charArray.join("");
+  } else if(isVowel(charArray[0], vowels) == false) {
+
+    while(isVowel(charArray[0], vowels) == false) {
+      charArray.splice(LENGTH, 0, charArray[0]);
+      charArray.splice(charArray[0], 1);
+    }
+
+    charArray.push(AY);
+    word = charArray.join("");
+
   }
+
 
   return word;
 }
 
+//      for(i = 0; i < LENGTH; i++) {
+//
+//       if(charArray[0] !== vowels[j] && isString) {
+//         charArray.splice(LENGTH, 0, charArray[0]);
+//         charArray.splice(charArray[0], 1);
+//         if(i === (LENGTH - 1)) {
+//           charArray.push(AY);
+//           word = charArray.join("");
+//         }
+//       }
+//     }
+//   }
+//
+//   return word;
+// }
+
 function showResult(word) {
 
   $("#result").text(word);
+}
+
+function isVowel(letter, vowels) {
+
+  for(i = 0; i < vowels.length; i++) {
+    if(letter == vowels[i]) {
+
+      return true;
+    }
+  } return false;
 }
