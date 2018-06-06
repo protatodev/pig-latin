@@ -4,28 +4,34 @@
   <meta charset="utf-8">
   <link href="css/bootstrap.css" rel="stylesheet" type="text/css">
   <link href="css/styles.css" rel="stylesheet" type="text/css">
+  <link href="https://fonts.googleapis.com/css?family=Coming+Soon" rel="stylesheet">
   <script src="js/jquery-3.3.1.js"></script>
   <script src="js/scripts.js"></script>
-  <title>Pig Latin Translator</title>
+  <title>Pig-Latin Translator</title>
 </head>
 <body>
-  <div class="container">
+  <div class="head">
     <div class="jumbotron">
-      <h1>Pig Latin Translator</h1>
+      <h1>Pig-Latin Translator</h1>
+      <div class="mudpig">
+      <img src="img/pig-in-mud.png" alt="pig in mud">
+      </div>
+      <div class="grass">
+      <img src="img/grass.png" alt="grass">
+      </div>
     </div>
-
-    <form id="pigForm">
+  </div>
+  <div class="container" id="main">
+   <form id="pigForm">
       <div class="form-group">
-        <label for="pigLatin">Enter a word and you will see the result in pig-latin</label>
+        <label for="pigLatin">Enter <span class="red">one</span> word and you will see the result in pig-latin</label>
         <input id="pigLatin" type="text">
       </div>
       <button type="submit" class="btn">Find out!</button>
     </form>
-
-    <div>
-      <p id="result"></p>
-    </div>
-
+  </div>
+  <div class="container" id="resultbox">
+    <p id="result"></p>
   </div>
 </body>
 </html>

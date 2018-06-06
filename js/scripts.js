@@ -61,11 +61,17 @@ function translate(word) {
         }
       }
     }
-
-  charArray.push(AY);
-  word = charArray.join("");
-
-}
+    while(isVowel(charArray[0], vowels) == false && charArray[0] =="q" && charArray[1] =="u" ) {
+        charArray.splice(LENGTH, 0, charArray[0]);
+        charArray.splice(charArray[0], 1);
+        if(charArray[0] == "u") {
+          charArray.splice(LENGTH, 0, charArray[0]);
+          charArray.splice(charArray[0], 1);
+        }
+      }
+      charArray.push(AY);
+      word = charArray.join("");
+    }
 
   return word;
 }
@@ -74,6 +80,7 @@ function translate(word) {
 function showResult(word) {
 
   $("#result").text(word);
+  $("#resultbox").slideDown();
 }
 
 function isVowel(letter, vowels) {

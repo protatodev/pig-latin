@@ -1,0 +1,81 @@
+body {
+  background-image: url(../img/spring.png);
+  text-align: center;
+  background-attachment: fixed;
+  background-position: bottom;
+  font-family: 'Coming Soon', cursive;
+}
+
+#main {
+  background: white;
+  border: 1px solid #EA9785;
+  padding: 3rem;
+}
+
+#resultbox {
+  background: #554937;
+  color: white;
+  border: 1px solid black;
+  padding: 3rem;
+  display: none;
+}
+
+#result{
+    font-size: 45px;
+}
+
+.jumbotron {
+    background: #FBC2B3;
+    margin-bottom: 0;
+}
+
+.btn {
+  background: #FBC2B3;
+}
+
+.btn:hover {
+  background: #EA9785;
+  color: white;
+}
+
+input {
+  width: 100%;
+  margin: 23px 0;
+  height: 40px;
+}
+
+label {
+  font-size: 17px;
+  font-weight: 500;
+}
+
+#pigForm {
+
+}
+
+.red {
+  color: #EA9785;
+}
+
+.mudpig {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+}
+
+.head {
+  width: 1170px;
+  margin: 0 auto;
+}
+
+.grass{
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  left: 0;
+  z-index: -10;
+}
+
+.grass img {
+  max-width: 100%;
+}
