@@ -1,23 +1,4 @@
 /* Pig-Latin functions
-
-The program does nothing to non-alphabetical characters, since they do not contain consonants or vowels.
-Example Input: 3
-Example Output: 3
-The program adds "ay" to single-letter words beginning with a vowel.
-Example Input: i
-Example Output: iay
-The program adds "way" to words beginning with a vowel.
-Example Input: input
-Example Output: inputway
-The program adds "ay" to words beginning with one or more consonants.
-Example Input: Translator
-Example Output: anslatorTray
-The program will move the "y" in any word that starts with a "y" to the end and add "ay"
-Example Input: Yellow
-Example Output: ellowyay
-The program moves all of the first consecutive consonents to the end when words begin with one or more consonants.
-Example Input: Translator
-Example Output: anslatorTray
 Words beginning with "qu", the program moves both the "q" and the "u"
 Example Input: Quiet
 Example Output: ietquay
@@ -57,7 +38,7 @@ function translate(word) {
     }
     word = charArray.join("");
 
-  } else if(LENGTH > 1 && isVowel(charArray[0], vowels) == true) {
+  } else if(LENGTH > 1 && isVowel(charArray[0], vowels) == true && isString) {
 
     charArray.push(WAY);
     word = charArray.join("");
@@ -66,37 +47,29 @@ function translate(word) {
     charArray.splice(0, 1);
     charArray.push(AY);
     word = charArray.join("");
-  } else if(isVowel(charArray[0], vowels) == false) {
+  } else if(isVowel(charArray[0], vowels) == false && isString) {
 
-    while(isVowel(charArray[0], vowels) == false) {
+    while(isVowel(charArray[0], vowels) == false && charArray[0] !=="q") {
       charArray.splice(LENGTH, 0, charArray[0]);
       charArray.splice(charArray[0], 1);
+      if(charArray[0] == "q") {
+        charArray.splice(LENGTH, 0, charArray[0]);
+        charArray.splice(charArray[0], 1);
+        if(charArray[0] == "u") {
+          charArray.splice(LENGTH, 0, charArray[0]);
+          charArray.splice(charArray[0], 1);
+        }
+      }
     }
 
-    charArray.push(AY);
-    word = charArray.join("");
+  charArray.push(AY);
+  word = charArray.join("");
 
-  }
-
+}
 
   return word;
 }
 
-//      for(i = 0; i < LENGTH; i++) {
-//
-//       if(charArray[0] !== vowels[j] && isString) {
-//         charArray.splice(LENGTH, 0, charArray[0]);
-//         charArray.splice(charArray[0], 1);
-//         if(i === (LENGTH - 1)) {
-//           charArray.push(AY);
-//           word = charArray.join("");
-//         }
-//       }
-//     }
-//   }
-//
-//   return word;
-// }
 
 function showResult(word) {
 
